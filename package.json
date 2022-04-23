@@ -4,7 +4,7 @@
   "description": "A platform where data collected from a network of sensors placed in a region is stored and displayed.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon v1/src/app.js",
+    "dev": "nodemon v1/src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
