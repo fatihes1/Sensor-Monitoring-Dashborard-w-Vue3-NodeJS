@@ -1,17 +1,17 @@
 const Mongoose = require('mongoose');
+const logger = require('../scripts/logs/MainPoint')
 
-const SensorSchema = new Mongoose.Schema({
-    type : String,
+const MainPointSchema = new Mongoose.Schema({
     locationX: GeolocationCoordinates, // can be string too
     locationY : GeolocationCoordinates,
-    reportInterval : Number,
-    logs : [
+    address : String,
+    sensors : [
         {
             type : Mongoose.Types.ObjectId,
-            ref : 'log'
+            ref : 'sensor'
         }
     ]
     
 }, {timestamps: true, versionKey: false});
 
-module.exports = Mongoose.model('sensor', SensorSchema);
+module.exports = Mongoose.model('mainPoint', MainPointSchema);
