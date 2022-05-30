@@ -2,19 +2,17 @@ const Joi = require('joi');
 
 const createValidation = Joi.object({
     type : Joi.string().required(),
-    latitude : Joi.number().min(0).max(90).required(),
-    longitude : Joi.number().min(-180).max(180).required(),
-    address  : Joi.string().min(5).required(),
-    description : Joi.string().min(5).required(),
-    isStabil : Joi.boolean().required(),
+    locationX : Joi.string().required(),
+    locationY : Joi.string().required(),
+    reportInterval : Joi.number().required().min(0),
+    mainPointId : Joi.string().required().min(8)
 })
 const updateValidation = Joi.object({
-    type : Joi.string().required(),
-    latitude : Joi.number().min(0).max(90).required(),
-    longitude : Joi.number().min(-180).max(180).required(),
-    address  : Joi.string().min(5),
-    description : Joi.string().min(5),
-    isStabil : Joi.boolean(),
+    type : Joi.string(),
+    locationX : Joi.string(),
+    locationY : Joi.string(),
+    reportInterval : Joi.number().min(0),
+    mainPointId : Joi.string().min(8)
 })
 
 module.exports = {
