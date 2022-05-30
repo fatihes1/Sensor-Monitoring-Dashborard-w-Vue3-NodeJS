@@ -3,7 +3,7 @@ const MainPointService = require("../services/MainPointService");
 // const ProjectService = new Service();
 // const ApiError = require("../errors/ApiError")
 
-class Project {
+class MainPoint {
     index (req, res) {
         MainPointService.list().then(response => {
             res.status(httpStatus.OK).send(response);
@@ -47,4 +47,4 @@ class Project {
     }
 }
 
-module.exports = new Project();
+module.exports = new MainPoint();

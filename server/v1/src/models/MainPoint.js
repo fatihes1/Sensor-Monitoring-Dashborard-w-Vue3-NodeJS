@@ -2,12 +2,12 @@ const Mongoose = require('mongoose');
 const logger = require('../scripts/logs/MainPoint')
 
 const MainPointSchema = new Mongoose.Schema({
-    locationX: GeolocationCoordinates, // can be string too
-    locationY : GeolocationCoordinates,
-    address : String,
+    locationX: String, // can be string too
+    locationY : String,
+    radius : Number,
     sensors : [
         {
-            type : Mongoose.Types.ObjectId,
+            type : Mongoose.Schema.Types.ObjectId,
             ref : 'sensor'
         }
     ]
