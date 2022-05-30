@@ -1,6 +1,5 @@
-BaseModel = null,
-
-class BaseService{
+BaseModel = null;
+class BaseService {
     constructor(model) {
         this.BaseModel = model
     }
@@ -22,4 +21,6 @@ class BaseService{
     delete(id) {
         return this.BaseModel.findByIdAndDelete(id);
     }
-}
+};
+
+module.exports = BaseService;
