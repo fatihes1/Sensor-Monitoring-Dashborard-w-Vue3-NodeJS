@@ -5,13 +5,15 @@ const MainPointSchema = new Mongoose.Schema({
     locationX: String, // can be string too
     locationY : String,
     radius : Number,
-    sensors : [
-        {
-            type : Mongoose.Schema.Types.ObjectId,
-            ref : 'sensor'
-        }
-    ]
     
 }, {timestamps: true, versionKey: false});
+
+MainPointSchema.post("save", (doc) => {
+    logger.log({
+        level : "info",
+        message : doc,
+    });
+})
+
 
 module.exports = Mongoose.model('mainPoint', MainPointSchema);

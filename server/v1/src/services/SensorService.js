@@ -7,8 +7,8 @@ class SensorService extends BaseService {
     // @Override to list method
     list(where) {
         return BaseModel.find(where || {}).populate({
-            path : "logs",
-            select : "*",
+            path : "mainPoint_id",
+            select : "locationX locationY radius",
         });
     }
 }

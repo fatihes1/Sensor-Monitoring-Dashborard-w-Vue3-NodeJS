@@ -5,13 +5,7 @@ const SensorSchema = new Mongoose.Schema({
     locationX: String, // can be string too
     locationY : String,
     reportInterval : Number,
-    logs : [
-        {
-            type : Mongoose.Types.ObjectId,
-            ref : 'log'
-        }
-    ],
-    mainPointId : {
+    mainPoint_id : {
         type : Mongoose.Types.ObjectId,
         ref : "mainPoint"
     }

@@ -4,8 +4,8 @@ const SensorService = require("../services/SensorService");
 
 class Sensor {
     index (req, res) {
-        if(!req?.params?.sensorID) return res.status(httpStatus.BAD_REQUEST).send({ error : "Proje bilgisi eksik !" })
-        SensorService.list({ sensor_id : req.params.sensorID }).then(response => {
+        if(!req?.params?.mainPointId) return res.status(httpStatus.BAD_REQUEST).send({ error : "Proje bilgisi eksik !" })
+        SensorService.list({ mainPoint_id : req.params.mainPointId }).then(response => {
             res.status(httpStatus.OK).send(response);
         }).catch((e) => {
             res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
