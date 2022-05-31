@@ -5,15 +5,16 @@ const LogService = require("../services/LogService");
 
 class Log {
     index (req, res) {
-        if(!req?.params?.projectId) return res.status(httpStatus.BAD_REQUEST).send({ error : "Task bilgisi eksik !" })
-        LogService.list({ project_id : req.params.projectId }).then(response => {
+        // console.log(req.params);cle
+        if(!req?.params?.sensorID) return res.status(httpStatus.BAD_REQUEST).send({ error : "Sensor bilgisi eksik !" })
+        LogService.list({ sensor_id : req.params.sensorID }).then(response => {
             res.status(httpStatus.OK).send(response);
         }).catch((e) => {
             res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
         });
     }
     create (req, res) {
-        req.body.user_id = req.user;
+        // req.body.user_id = req.user;
         LogService.create(req.body).then(response => {
             res.status(httpStatus.CREATED).send(response);
         }).catch((e) => {
@@ -45,7 +46,36 @@ class Log {
                 });
             };
             res.status(httpStatus.OK).send({ message : "Belirtilen task silinmiştir"});
-        }).catch(e => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Task silinirken bir sorunla karşılaşıldı."}));
+        }).catch(e => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt silinirken bir sorunla karşılaşıldı."}));
+    }
+
+    makeComment (req, res) {
+        LogService.findOne({ _id : req.params.id })
+        .then(mainTask => {
+            console.log(req);
+            if(!mainTask) return res.status(httpStatus.NOT_FOUND).send({ message : "Böyle bir kayıt bulunmamaktadır." })
+            const comment = {
+                ...req.body,
+                commented_at : new Date(),
+            };
+            mainTask.records.push(comment);
+            mainTask.save().then(updatedDoc => {
+                return res.status(httpStatus.OK).send(updatedDoc);
+            })
+            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
+        }).catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
+    }
+
+    deleteComment (req, res) {
+        LogService.findOne({ _id : req.params.id })
+        .then(mainTask => {
+            if(!mainTask) return res.status(httpStatus.NOT_FOUND).send({ message : "Böyle bir kayıt bulunmamaktadır." });
+            mainTask.records = mainTask.records.filter((c) => c._id?.toString() !== req.params.commentId);
+            mainTask.save().then(updatedDoc => {
+                return res.status(httpStatus.OK).send(updatedDoc);
+            })
+            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
+        }).catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
     }
 
     // Belirli bir task, bu taskin subTask'leri ve commentlerini bir arada getirir

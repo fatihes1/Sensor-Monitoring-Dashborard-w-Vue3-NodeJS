@@ -1,7 +1,7 @@
 const httpStatus = require("http-status");
 const MainPointService = require("../services/MainPointService");
 // const ProjectService = new Service();
-// const ApiError = require("../errors/ApiError")
+const ApiError = require("../errors/ApiError")
 
 class MainPoint {
     index (req, res) {
@@ -39,11 +39,11 @@ class MainPoint {
         MainPointService.delete(req.params?.id).then((deletedProject) => {
             if(!deletedProject) {
                 return res.status(httpStatus.NOT_FOUND).send({
-                    message : "Bu ID değerine sahip kayıt bulunmamaktadır. !"
+                    message : "Bu ID değerine sahip main point bulunmamaktadır. !"
                 });
             };
-            res.status(httpStatus.OK).send({ message : "Belirtilen proje silinmiştir"});
-        }).catch(e => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Proje silinirken bir sorunla karşılaşıldı."}));
+            res.status(httpStatus.OK).send({ message : "Belirtilen main point silinmiştir"});
+        }).catch(e => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Main Point silinirken bir sorunla karşılaşıldı."}));
     }
 }
 

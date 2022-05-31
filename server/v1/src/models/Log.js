@@ -1,17 +1,20 @@
 const Mongoose = require('mongoose');
 
 const LogSchema = new Mongoose.Schema({
-    humidity : Number,
-    temperature : Number,
-    brightness : Number,
-    mainPointId : {
+    mainPoint_id : {
         type : Mongoose.Types.ObjectId,
         ref : "mainPoint"
     },
-    sensorId : {
+    sensor_id : {
         type : Mongoose.Types.ObjectId,
         ref : "sensor"
-    }
+    },
+    records : [
+        {   
+            comment : Object,
+            commented_at : Date,
+        }
+    ]
     
 }, {timestamps: true, versionKey: false});
 
