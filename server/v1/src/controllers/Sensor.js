@@ -4,7 +4,7 @@ const SensorService = require("../services/SensorService");
 
 class Sensor {
     index (req, res) {
-        if(!req?.params?.mainPointId) return res.status(httpStatus.BAD_REQUEST).send({ error : "Proje bilgisi eksik !" })
+        if(!req?.params?.mainPointId) return res.status(httpStatus.BAD_REQUEST).send({ error : "Main point bilgisi eksik !" })
         SensorService.list({ mainPoint_id : req.params.mainPointId }).then(response => {
             res.status(httpStatus.OK).send(response);
         }).catch((e) => {
@@ -12,7 +12,6 @@ class Sensor {
         });
     }
     create (req, res) {
-
         SensorService.create(req.body).then(response => {
             res.status(httpStatus.CREATED).send(response);
         }).catch((e) => {

@@ -19,7 +19,7 @@ class LogService extends BaseService {
         ]);
     }
     //@Override to findOne method
-    findOne(where, expand) {
+    findOneAnd(where, expand) {
         if(!expand) return this.BaseModel.findOne(where);
         return this.BaseModel.findOne(where).populate([
             {

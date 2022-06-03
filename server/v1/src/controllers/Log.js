@@ -52,21 +52,22 @@ class Log {
     makeComment (req, res) {
         LogService.findOne({ _id : req.params.id })
         .then(mainTask => {
-            console.log(req);
+            // console.log(req);
             if(!mainTask) return res.status(httpStatus.NOT_FOUND).send({ message : "Böyle bir kayıt bulunmamaktadır." })
             const comment = {
                 ...req.body,
                 commented_at : new Date(),
             };
+            
             mainTask.records.push(comment);
             mainTask.save().then(updatedDoc => {
                 return res.status(httpStatus.OK).send(updatedDoc);
             })
-            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
+            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştuuuuuu." }));
         }).catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
     }
 
-    deleteComment (req, res) {
+     deleteComment (req, res) {
         LogService.findOne({ _id : req.params.id })
         .then(mainTask => {
             if(!mainTask) return res.status(httpStatus.NOT_FOUND).send({ message : "Böyle bir kayıt bulunmamaktadır." });
@@ -74,7 +75,7 @@ class Log {
             mainTask.save().then(updatedDoc => {
                 return res.status(httpStatus.OK).send(updatedDoc);
             })
-            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
+            .catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştuuuu." }));
         }).catch((e) => res.status(httpStatus.INTERNAL_SERVER_ERROR).send({ error : "Kayıt sırasında bir problem oluştu." }));
     }
 

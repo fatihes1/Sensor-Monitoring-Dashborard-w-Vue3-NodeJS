@@ -18,4 +18,11 @@ const LogSchema = new Mongoose.Schema({
     
 }, {timestamps: true, versionKey: false});
 
+LogSchema.post("save", (doc) => {
+    logger.log({
+        level : "info",
+        message : doc,
+    });
+});
+
 module.exports = Mongoose.model('log', LogSchema);

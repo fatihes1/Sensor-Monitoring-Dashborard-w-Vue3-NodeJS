@@ -1,16 +1,13 @@
 <template>
-      <HelloWorld msg="You did it!" />
-      <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/home">About</RouterLink>
-      </nav> -->
-    
-  <!-- <RouterView /> -->
+        <router-view></router-view>   
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "@/components/HelloWorld.vue";
+// import { RouterLink, RouterView } from "vue-router";
+import WelcomePage from "@/components/WelcomePage.vue";
+
+
+
 </script>
 
 
