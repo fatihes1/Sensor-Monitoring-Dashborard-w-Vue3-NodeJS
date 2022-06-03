@@ -7,6 +7,7 @@ class BaseService {
         return this.BaseModel?.find(where || {})
     }
     create(data) {
+        // return this.BaseModel(data).save();
         return this.BaseModel(data).save();
     }
     findOne(where) {
