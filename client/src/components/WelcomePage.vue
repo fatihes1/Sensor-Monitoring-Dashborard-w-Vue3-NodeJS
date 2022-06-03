@@ -1,7 +1,7 @@
 <template>
    <div class="flex-col flex my-auto justify-between items-center h-screen">
       <div class="flex flex-col justify-center items-center h-screen">
-      <div class="text-7xl flex-row font-extrabold text-center">The Sensor <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-purple-700">Monitoring</span> <br> Dashboard System</div>
+      <div class="text-7xl flex-row font-extrabold text-center text-gray-800">The Sensor <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-purple-700">Monitoring</span> <br> Dashboard System</div>
       <div class="text-2xl flex-row font-normal text-center py-10 text-gray-500">An approachable, performant and user friendly monitoring system for building IoT developers.</div>
        <section class="mb-10">
            <a href="" class=" bg-brand-orange hover:bg-orange-600 transition-colors px-3 py-2 font-semibold text-lg rounded-lg text-white">
