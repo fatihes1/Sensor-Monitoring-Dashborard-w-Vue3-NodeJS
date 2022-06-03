@@ -1,4 +1,5 @@
 const Mongoose = require('mongoose');
+const logger = require('../scripts/logs/Sensor')
 
 const SensorSchema = new Mongoose.Schema({
     type : String,
@@ -8,7 +9,8 @@ const SensorSchema = new Mongoose.Schema({
     mainPoint_id : {
         type : Mongoose.Types.ObjectId,
         ref : "mainPoint"
-    }
+    },
+    records : Array
     
 }, {timestamps: true, versionKey: false});
 

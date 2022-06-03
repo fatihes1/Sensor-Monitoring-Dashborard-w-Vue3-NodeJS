@@ -6,13 +6,16 @@ const ApiError = require("../errors/ApiError")
 class MainPoint {
     index (req, res) {
         MainPointService.list().then(response => {
-            res.status(httpStatus.OK).send(response);
+            if(response.length == 0) {
+                res.status(httpStatus.NOT_FOUND).send({message : "Hiçbir main point kaydı bulunamadı !"});
+            } else {
+                res.status(httpStatus.OK).send(response);
+            }
         }).catch((e) => {
             res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
         });
     }
     create (req, res) {
-        req.body.user_id = req.user;
         MainPointService.create(req.body).then(response => {
             res.status(httpStatus.CREATED).send(response);
         }).catch((e) => {
