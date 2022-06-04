@@ -1,7 +1,7 @@
 const  express = require("express");
 const path = require("path");
 const helmet = require("helmet");
-
+const cors = require("cors");
 const config = require("./config");
 const loaders = require("./loaders");
 
@@ -12,6 +12,8 @@ loaders();
 
 const app = express();
 
+
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 
