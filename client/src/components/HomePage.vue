@@ -19,12 +19,77 @@
       </div>
 
       <!-- INPUT SECTION -->
-      <div class="mt-40 text-center">
-        INPUT
+      <div class="mt-40 w-2/3 mx-auto text-center">
+        <div class="mockup-window border border-brand-orange/50 border-base-300">
+          <div class="flex-row justify-center px-4 py-5 border-t border-brand-orange/50 ">
+            <h1 class="text-3xl font-semibold block">Create a Main Point</h1>
+            <br>
+            <!-- FORM INPUT -->
+            <div class="flex justify-center items-center gap-x-5">
+              <div class="form-control">
+              <label class="label">
+                <span class="label-text text-base">Enter Sensor Name</span>
+              </label>
+              <div class="form-control">
+              <label class="input-group input-group-md">
+                <span class="bg-brand-orange/30 text-lg">Title</span>
+                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.title" />
+              </label>
+              </div>
+            </div>
+            <div class="form-control ml-10">
+              <label class="label">
+                <span class="label-text text-base">Enter X Location</span>
+              </label>
+              <div class="form-control">
+              <label class="input-group input-group-md">
+                <span class="bg-brand-orange/30 text-lg w-28">Loc-X</span>
+                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full"  v-model="crateMainPointForm.locationX"/>
+              </label>
+              </div>
+            </div>
+            <div class="form-control ml-10">
+              <label class="label">
+                <span class="label-text text-base">Enter Y Location</span>
+              </label>
+              <div class="form-control">
+              <label class="input-group input-group-md">
+                <span class="bg-brand-orange/30 text-lg w-28">Loc-Y</span>
+                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.locationX" />
+              </label>
+              </div>
+            </div>
+            <div class="form-control ml-10">
+              <label class="label">
+                <span class="label-text text-base">Enter Radius for Point</span>
+              </label>
+              <div class="form-control">
+              <label class="input-group input-group-md">
+                <span class="bg-brand-orange/30 text-lg">Radius</span>
+                <input type="number" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.radius" />
+              </label>
+              </div>
+            </div>
+            </div>
+            <br>
+            <div class="flex justify-center items-center">
+              <div class="form-control w-2/3">
+              <label class="label">
+                <span class="label-text text-base">Enter Sensor Description</span>
+              </label>
+              <textarea class="textarea w-full border border-brand-orange/50" placeholder="Bio" v-model="crateMainPointForm.description" ></textarea>
+            </div>
+            </div>
+            <div class="flex justify-center mt-8">
+              <button class="btn bg-white text-black hover:bg-brand-orange/40 border-brand-orange hover:" @click="createMainPoint">CREATE</button>
+            </div>
+
+          </div>
+        </div>
       </div>
 
       <!-- LIST MAIN POINTS -->
-      <div class="w-2/3 mx-auto mt-5" v-if="mainPoints.data">
+      <div class="w-2/3 mx-auto mt-20" v-if="mainPoints.data">
         <div class="overflow-x-auto w-full">
       <table class="table w-full">
         <!-- head -->
@@ -80,7 +145,7 @@
         </table>
         </div>
       </div>
-      <div v-else class="w-2/3 mx-auto mt-5">
+      <div v-else class="w-2/3 mx-auto mt-20">
         <div class="mockup-code">
           <pre data-prefix="$"><code>show my main point</code></pre>
           <pre data-prefix=">" class="text-warning"><code>loading ... </code></pre>
@@ -96,7 +161,14 @@
 export default {
   data () {
     return {
-      mainPoints : {}
+      mainPoints : {},
+      crateMainPointForm : {
+        title: null,
+        description : null,
+        locationX : null,
+        locationY : null,
+        radius : null
+      }
     }
   },
   mounted()  {
@@ -117,8 +189,16 @@ export default {
               url: `/mainpoints/${id}`,
               method: "DELETE"
       }).then(deletedItem => {
-        this.mainPoints.data = this.mainPoints.data.filter(i => i !== deletedItem)
+        // TODO : daha iyi bir çözüm bul !
+        // this.getMainPoints();  
+        this.mainPoints.data = this.mainPoints.data.filter(item => item._id !== id);
+        if(this.mainPoints.data.length == 0) {
+          this.$router.go(); // refresh page and show code-mock-up
+        }
       });
+    },
+    createMainPoint () {
+
     }
   }
   
