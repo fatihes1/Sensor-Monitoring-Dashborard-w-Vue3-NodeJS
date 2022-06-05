@@ -8,7 +8,7 @@ class SensorService extends BaseService {
     list(where) {
         return BaseModel.find(where || {}).populate({
             path : "mainPoint_id",
-            select : "locationX locationY radius",
+            select : "title locationX locationY radius",
         });
     }
 }
