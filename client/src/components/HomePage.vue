@@ -89,7 +89,7 @@
       </div>
 
       <!-- LIST MAIN POINTS -->
-      <div class="w-2/3 mx-auto mt-20" v-if="mainPoints.data">
+      <div class="w-2/3 mx-auto mt-20 mb-10" v-if="mainPoints.data">
         <div class="overflow-x-auto w-full">
       <table class="table w-full">
         <!-- head -->
@@ -149,7 +149,7 @@
         </table>
         </div>
       </div>
-      <div v-else class="w-2/3 mx-auto mt-20">
+      <div v-else class="w-2/3 mx-auto mt-20 mb-10">
         <div class="mockup-code">
           <pre data-prefix="$"><code>show my main point</code></pre>
           <pre data-prefix=">" class="text-warning"><code>loading ... </code></pre>
@@ -158,68 +158,70 @@
           <pre data-prefix=">" class="text-success"><code>   create your first manit point using the form above</code></pre>
         </div>
       </div>
-      <router-view></router-view>  
+      <router-view></router-view>
+      <Footer />  
   </div>
 </template>
 
 <script>
+
+import Footer from "../views/Footer.vue";
 export default {
-  data () {
-    return {
-      mainPoints : {},
-      crateMainPointForm : {
-        title: null,
-        description : null,
-        locationX : null,
-        locationY : null,
-        radius : null
-      }
-    }
-  },
-  mounted()  {
-    this.getMainPoints();
-  },
-  methods : {
-    getMainPoints () {
-      
-      this.$appAxios({
-              url: "/mainpoints",
-              method: "GET"
-      }).then(mainPoints => {
-        this.mainPoints = {...mainPoints}
-      });
+    data() {
+        return {
+            mainPoints: {},
+            crateMainPointForm: {
+                title: null,
+                description: null,
+                locationX: null,
+                locationY: null,
+                radius: null
+            }
+        };
     },
-    deleteMainPoint (id) {
-      this.$appAxios({
-              url: `/mainpoints/${id}`,
-              method: "DELETE"
-      }).then(deletedItem => {
-        // TODO : daha iyi bir çözüm bul !
-        // this.getMainPoints();  
-        this.mainPoints.data = this.mainPoints.data.filter(item => item._id !== id);
-        if(this.mainPoints.data.length == 0) {
-          this.$router.go(); // refresh page and show code-mock-up
+    mounted() {
+        this.getMainPoints();
+    },
+    methods: {
+        getMainPoints() {
+            this.$appAxios({
+                url: "/mainpoints",
+                method: "GET"
+            }).then(mainPoints => {
+                this.mainPoints = { ...mainPoints };
+            });
+        },
+        deleteMainPoint(id) {
+            this.$appAxios({
+                url: `/mainpoints/${id}`,
+                method: "DELETE"
+            }).then(deletedItem => {
+                // TODO : daha iyi bir çözüm bul !
+                // this.getMainPoints();  
+                this.mainPoints.data = this.mainPoints.data.filter(item => item._id !== id);
+                if (this.mainPoints.data.length == 0) {
+                    this.$router.go(); // refresh page and show code-mock-up
+                }
+            });
+        },
+        createMainPoint() {
+            this.$appAxios({
+                url: "/mainpoints",
+                method: "POST",
+                data: {
+                    title: this.crateMainPointForm.title,
+                    description: this.crateMainPointForm.description,
+                    locationX: this.crateMainPointForm.locationX,
+                    locationY: this.crateMainPointForm.locationY,
+                    radius: this.crateMainPointForm.radius,
+                }
+            }).then(mainPoints => {
+                console.log(mainPoints);
+                this.mainPoints = this.getMainPoints();
+            });
         }
-      });
     },
-    createMainPoint () {
-      this.$appAxios({
-              url: "/mainpoints",
-              method: "POST",
-              data : {
-                title: this.crateMainPointForm.title,
-                description : this.crateMainPointForm.description,
-                locationX : this.crateMainPointForm.locationX,
-                locationY : this.crateMainPointForm.locationY,
-                radius : this.crateMainPointForm.radius,
-              }
-      }).then(mainPoints => {
-        console.log(mainPoints);
-        this.mainPoints = this.getMainPoints();
-      });
-    }
-  }
-  
+    components: { Footer }
 }
 </script>
 
