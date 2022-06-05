@@ -82,7 +82,7 @@
       </div>
 
       <!-- LIST MAIN POINTS -->
-      <div class="w-2/3 mx-auto mt-20" v-if="sensorsInfo.data">
+      <div class="w-2/3 mx-auto mt-20 mb-10" v-if="sensorsInfo.data">
         <div class="overflow-x-auto w-full">
       <table class="table w-full">
         <!-- head -->
@@ -103,7 +103,7 @@
               <div class="flex items-center space-x-3">
                 <div class="avatar">
                   <div class="mask mask-squircle w-12 h-12">
-                    <img src="https://www.pngrepo.com/download/230977/placeholder-map-location.png" alt="Avatar Tailwind CSS Component" />
+                    <img src="https://cdn-icons-png.flaticon.com/512/3720/3720609.png" alt="Avatar Tailwind CSS Component" />
                   </div>
                 </div>
                 <div>
@@ -123,10 +123,10 @@
                 <td class="text-sm">{{ sensor.reportInterval }}</td>
             </th>
             <th>
-              <!-- <router-link :to ="`/sensors/${point._id}`">
+              <router-link :to ="`/sensor/${sensor._id}`">
                 <button class="btn btn-ghost btn-xs">Details</button>
-              </router-link> -->
-              <button class="btn btn-ghost btn-xs">Details</button>
+              </router-link>
+              
             </th>
             
             <th>
@@ -148,7 +148,7 @@
         </table>
         </div>
       </div>
-      <div v-else class="w-2/3 mx-auto mt-20">
+      <div v-else class="w-2/3 mx-auto mt-20 mb-10">
         <div class="mockup-code">
           <pre data-prefix="$"><code>show my main point</code></pre>
           <pre data-prefix=">" class="text-warning"><code>loading ... </code></pre>
@@ -158,11 +158,14 @@
         </div>
       </div>
       <router-view></router-view>  
+      <Footer/>
   </div>
 </template>
 
 <script>
+import Footer from "../views/Footer.vue"
 export default {
+  components : {Footer},
   data () {
     return {
       sensorsInfo : {},

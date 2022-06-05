@@ -17,7 +17,6 @@ class Sensor {
     }
     create (req, res) {
         SensorService.create(req.body).then(response => {
-            console.log(response);
             res.status(httpStatus.CREATED).send(response);
         }).catch((e) => {
             res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
