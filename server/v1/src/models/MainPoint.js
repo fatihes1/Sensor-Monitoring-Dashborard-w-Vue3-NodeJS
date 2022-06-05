@@ -6,7 +6,7 @@ const MainPointSchema = new Mongoose.Schema({
     description : String,
     locationX: String, // can be string too
     locationY : String,
-    radius : Number,
+    radius : Number
     
 }, {timestamps: true, versionKey: false});
 
