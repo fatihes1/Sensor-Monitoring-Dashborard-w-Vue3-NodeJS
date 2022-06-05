@@ -55,7 +55,7 @@
               <div class="form-control">
               <label class="input-group input-group-md">
                 <span class="bg-brand-orange/30 text-lg w-28">Loc-Y</span>
-                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.locationX" />
+                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.locationY" />
               </label>
               </div>
             </div>
@@ -113,17 +113,18 @@
                   </div>
                 </div>
                 <div>
-                  <div class="font-bold">Location X : {{ point.locationX }}</div>
-                  <div class="text-sm opacity-50">Location Y : {{ point.locationY }}</div>
+                  <div class="font-bold">{{ point.title }}</div>
+                  <div class="text-sm opacity-50">{{ point.description }}</div>
                 </div>
               </div>
             </td>
-            <td>
-              {{ point.radius }}
+            <td class="text-sm">
+              X: {{ point.locationX }}, Y: {{ point.locationY }}
               <br>
-              <span class="badge badge-ghost badge-sm">{{point.title}}</span>
+              <!-- <span class="badge badge-ghost badge-sm">Latitude - Longitude</span> -->
+              <span class="badge badge-success badge-sm">• Active</span>
             </td>
-            <td>{{ point.createdAt }}</td>
+            <td class="text-sm">{{ point.createdAt }}</td>
             <th>
               <button class="btn btn-ghost btn-xs">Details</button>
             </th>
@@ -198,7 +199,20 @@ export default {
       });
     },
     createMainPoint () {
-
+      this.$appAxios({
+              url: "/mainpoints",
+              method: "POST",
+              data : {
+                title: this.crateMainPointForm.title,
+                description : this.crateMainPointForm.description,
+                locationX : this.crateMainPointForm.locationX,
+                locationY : this.crateMainPointForm.locationY,
+                radius : this.crateMainPointForm.radius,
+                createDate : new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' })
+              }
+      }).then(mainPoints => {
+        this.mainPoints = this.getMainPoints();
+      });
     }
   }
   
