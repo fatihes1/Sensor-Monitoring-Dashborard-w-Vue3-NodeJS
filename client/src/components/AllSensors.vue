@@ -33,7 +33,12 @@
               <div class="form-control">
               <label class="input-group input-group-md">
                 <span class="bg-brand-orange/30 text-lg">Type</span>
-                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="addSensorForm.type" />
+                <select class="select select-bordered text-gray-400 text-sm font-thin">
+                  <option disabled selected>Pick Sensor</option>
+                  <option>Metan</option>
+                  <option>Bütan</option>
+                  <option>Azot</option>
+                </select>
               </label>
               </div>
             </div>
@@ -43,7 +48,7 @@
               </label>
               <div class="form-control">
               <label class="input-group input-group-md">
-                <span class="bg-brand-orange/30 text-lg w-28">Loc-X</span>
+                <span class="bg-brand-orange/30 text-lg">X</span>
                 <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full"  v-model="addSensorForm.locationX"/>
               </label>
               </div>
@@ -54,7 +59,7 @@
               </label>
               <div class="form-control">
               <label class="input-group input-group-md">
-                <span class="bg-brand-orange/30 text-lg w-28">Loc-Y</span>
+                <span class="bg-brand-orange/30 text-lg">Y</span>
                 <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="addSensorForm.locationY" />
               </label>
               </div>
