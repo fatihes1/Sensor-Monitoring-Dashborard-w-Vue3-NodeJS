@@ -7,12 +7,16 @@ import router from "./router";
 
 import { appAxios } from "./utils/appAxios";
 
+import io from "socket.io-client";
+const socket = io("http://localhost:2018");
+
 const app = createApp(App);
 
 
 app.use(createPinia());
 app.use(router);
 
+app.config.globalProperties.$socket = socket;
 app.config.globalProperties.$appAxios = appAxios;
 
 app.mount("#app");

@@ -97,7 +97,7 @@
           <tr>
             <th>Title / Description</th>
             <th>Location / Status</th>
-            <th>Oluşturulma Tarihi</th>
+            <th>Created Date</th>
             <th></th>
             <th></th>
           </tr>
@@ -141,7 +141,7 @@
           <tr>
             <th>Title / Description</th>
             <th>Location / Status</th>
-            <th>Oluşturulma Tarihi</th>
+            <th>Created Date</th>
             <th></th>
             <th></th>
           </tr>
