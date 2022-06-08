@@ -17,10 +17,10 @@
           </div>
         </div>
       </div>
-      <div class="w-2/3 mx-auto mt-20 mb-10" v-if="sensorDatas.data.records">
-        {{ sensorDatas.data.records }}
+      <div class="w-2/3 mx-auto mt-20 mb-10" v-if="sensorDatas.data">
+        {{ sensorDatas.data }}
       </div>
-      <div v-else class="w-2/3 mx-auto mt-20 mb-10">
+      <div class="w-2/3 mx-auto mt-20 mb-10">
         <div class="mockup-code">
           <pre data-prefix="$"><code>show my sensor-datas</code></pre>
           <pre data-prefix=">" class="text-warning"><code>loading ... </code></pre>
@@ -45,6 +45,7 @@ export default {
   },
   mounted()  {
     this.getSensorDatas();
+    console.log("Geldi");
   },
   methods : {
     getSensorDatas() {
@@ -56,6 +57,7 @@ export default {
         //   console.log(response);
         console.log(response);
         this.sensorDatas = {...response}
+        
       });
     }
   }

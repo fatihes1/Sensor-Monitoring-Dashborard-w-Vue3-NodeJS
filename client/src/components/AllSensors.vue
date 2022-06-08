@@ -179,8 +179,8 @@ export default {
   components : {Footer},
   data () {
     return {
-      sensorsInfo : {},
-      addSensorForm : {
+      sensorsInfo : {}, // main pointe ait tüm sensörleri burada depola
+      addSensorForm : { // bu main pointe yeni sensör eklemek için
         type: "Pick Sensor",
         locationX : null,
         locationY : null,

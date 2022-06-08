@@ -13,12 +13,12 @@ const router = createRouter({
       component: WelcomePage,
     },
     {
-      name : "home",
+      name : "home", // -> All main point
       path : "/home",
       component: HomePage
     },
     {
-      name : "mainpoint",
+      name : "mainpoint", // --> All sensor from a main point
       path : "/mainpoint/:id",
       component : AllSensors,
     },
