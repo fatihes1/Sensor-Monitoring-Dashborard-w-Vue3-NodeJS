@@ -18,9 +18,11 @@ class AddData {
         const log = new LogObject(
             Date.now() / 1000, // ID VALUE (uuid)
             Date.now(), // timeStamp
-            this.guess(), // random verilerke humidy
-            this.guess(), // temperature
-            this.guess() // brighn
+            this.guess(), // smoke
+            this.guess(), // co2
+            this.guess(), // metan
+            this.guess(), // dust
+            this.guess() // o2
         );
         this.logs.push(log);
 

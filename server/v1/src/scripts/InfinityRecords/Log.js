@@ -1,10 +1,12 @@
 class Log {
-    constructor(reportID, timeStamp,humidity,temp,brightness) {
+    constructor(reportID, timeStamp, smoke, co2, metan, dust, o2) {
       this.reportID = reportID;
       this.timeStamp = timeStamp;
-      this.humidity = humidity;
-      this.temp = temp;
-      this.brightness = brightness;
+      this.smoke = smoke;
+      this.co2 = co2;
+      this.metan = metan;
+      this.dust = dust;
+      this.o2 = o2;
     }
 }
 
