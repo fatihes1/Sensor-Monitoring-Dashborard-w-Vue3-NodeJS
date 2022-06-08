@@ -169,8 +169,8 @@ import Footer from "../views/Footer.vue";
 export default {
     data() {
         return {
-            mainPoints: {},
-            crateMainPointForm: {
+            mainPoints: {}, // Veriler çekildikten sonra buraya yazılacak
+            crateMainPointForm: { // İstek yollamak için verileri depola
                 title: null,
                 description: null,
                 locationX: null,
@@ -179,7 +179,7 @@ export default {
             }
         };
     },
-    mounted() {
+    mounted() { // ilk yüklendi çaıştır
         this.getMainPoints();
     },
     methods: {
@@ -193,7 +193,7 @@ export default {
         },
         deleteMainPoint(id) {
             this.$appAxios({
-                url: `/mainpoints/${id}`,
+                url: `/mainpoints/${id}`, // /mainpoint/31321sa
                 method: "DELETE"
             }).then(deletedItem => {
                 // TODO : daha iyi bir çözüm bul !
@@ -217,7 +217,7 @@ export default {
                 }
             }).then(mainPoints => {
                 console.log(mainPoints);
-                this.mainPoints = this.getMainPoints();
+                this.getMainPoints();
             });
         }
     },

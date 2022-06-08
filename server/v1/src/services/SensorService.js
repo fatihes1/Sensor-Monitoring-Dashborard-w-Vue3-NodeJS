@@ -17,7 +17,7 @@ class SensorService extends BaseService {
         // return this.BaseModel(data).save();
         try {
             const savedData = await this.BaseModel(data).save();
-            console.log(savedData);
+            // console.log(savedData);
             const recordObject = new AddData(savedData._id, savedData.records, savedData.reportInterval);
             await recordObject.addLog();
             return savedData;
