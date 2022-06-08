@@ -10,7 +10,9 @@ const SensorSchema = new Mongoose.Schema({
         type : Mongoose.Types.ObjectId,
         ref : "mainPoint"
     },
-    records : Array
+    records : {
+        type: Array
+    }
     
 }, {timestamps: true, versionKey: false});
 

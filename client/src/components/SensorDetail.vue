@@ -39,7 +39,9 @@ import Footer from "../views/Footer.vue"
 export default {
   components : {Footer},
   data () {
-    sensorDatas : {}
+    return {
+      sensorDatas : {}
+    }
   },
   mounted()  {
     this.getSensorDatas();
@@ -52,6 +54,7 @@ export default {
               method: "GET"
       }).then(response => {
         //   console.log(response);
+        console.log(response);
         this.sensorDatas = {...response}
       });
     }

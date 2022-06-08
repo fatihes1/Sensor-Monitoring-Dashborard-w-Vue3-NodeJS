@@ -33,7 +33,12 @@
               <div class="form-control">
               <label class="input-group input-group-md">
                 <span class="bg-brand-orange/30 text-lg">Type</span>
-                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="addSensorForm.type" />
+                <select class="select select-bordered  text-sm font-base" v-model="addSensorForm.type">
+                  <option disabled selected class="text-gray-400">Pick Sensor</option>
+                  <option class="text-black">Metan</option>
+                  <option class="text-black">Bütan</option>
+                  <option class="text-black">Azot</option>
+                </select>
               </label>
               </div>
             </div>
@@ -43,7 +48,7 @@
               </label>
               <div class="form-control">
               <label class="input-group input-group-md">
-                <span class="bg-brand-orange/30 text-lg w-28">Loc-X</span>
+                <span class="bg-brand-orange/30 text-lg">X</span>
                 <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full"  v-model="addSensorForm.locationX"/>
               </label>
               </div>
@@ -54,7 +59,7 @@
               </label>
               <div class="form-control">
               <label class="input-group input-group-md">
-                <span class="bg-brand-orange/30 text-lg w-28">Loc-Y</span>
+                <span class="bg-brand-orange/30 text-lg">Y</span>
                 <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="addSensorForm.locationY" />
               </label>
               </div>
@@ -74,13 +79,18 @@
             <br>
             
             <div class="flex justify-center mt-8">
-              <button class="btn bg-white text-black hover:bg-brand-orange/40 border-brand-orange hover:" @click="createMainPoint">ADD</button>
+              <button class="btn bg-white text-black hover:bg-brand-orange/40 border-brand-orange hover:" @click="createSensor()">ADD</button>
             </div>
-
+            <div v-if="showError" class="alert alert-error shadow-lg mt-3">
+                <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>You must choose a sensor type!</span>
+                </div>
+                <button class="btn btn-sm  btn-outline" @click="this.showError = false">x</button>
+            </div>
           </div>
         </div>
       </div>
-
       <!-- LIST MAIN POINTS -->
       <div class="w-2/3 mx-auto mt-20 mb-10" v-if="sensorsInfo.data">
         <div class="overflow-x-auto w-full">
@@ -157,6 +167,7 @@
           <pre data-prefix=">" class="text-success"><code>   create your first manit point using the form above</code></pre>
         </div>
       </div>
+      
       <router-view></router-view>  
       <Footer/>
   </div>
@@ -170,11 +181,12 @@ export default {
     return {
       sensorsInfo : {},
       addSensorForm : {
-        type: null,
+        type: "Pick Sensor",
         locationX : null,
         locationY : null,
         reportInterval : null
-      }
+      },
+      showError : false
     }
   },
   mounted()  {
@@ -205,7 +217,11 @@ export default {
         }
       });
     },
-    createMainPoint () {
+    createSensor () {
+      if(this.addSensorForm.type == "Pick Sensor") {
+        this.showError = true;
+        return;
+      }
         var path = window.location.pathname.split("/");
       this.$appAxios({
               url: "/sensors",
@@ -220,6 +236,7 @@ export default {
       }).then(sensors => {
         // console.log(sensors);
         this.getSensorFromMainPoint();
+
       });
     }
   }
