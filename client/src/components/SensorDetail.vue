@@ -118,12 +118,21 @@ export default {
       showTable: false
     };
   },
-  mounted() {
+  created () {
     this.getSensorDatas();
-    // this.$socket.on("added-record", responseSocket => {
-    //   // console.log(responseSocket);
-    //   this.sensorDatas[0].records.push(responseSocket);
-    // })
+  },
+  mounted() {
+    // this.$socket.emit("msg", "SELAMKEE");
+      this.$socket.on("added-record", (responseSocket) => {
+      
+      var path = window.location.pathname.split("/");
+       if(responseSocket.documentKey._id ==  path[2]) {
+         console.log(responseSocket);
+         this.sensorDatas.data[0].records = responseSocket.updateDescription.updatedFields.records ;
+        //  this.sensorDatas[0].records.push(responseSocket.updateDescription.updatedFields.records);
+       }
+    })
+    
 
   },
   methods: {
