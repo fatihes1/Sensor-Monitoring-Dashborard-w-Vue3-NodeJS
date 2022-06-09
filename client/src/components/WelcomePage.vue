@@ -67,7 +67,9 @@
 import { useRouter } from 'vue-router'
 
 export default {
-
+    mounted() {
+        this.$socket.emit("msg", "Anasayfa");
+    }
 }
 </script>
 

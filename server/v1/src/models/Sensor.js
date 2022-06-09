@@ -16,11 +16,11 @@ const SensorSchema = new Mongoose.Schema({
     
 }, {timestamps: true, versionKey: false});
 
-SensorSchema.post("save", (doc) => {
-    logger.log({
-        level : "info",
-        message : doc,
-    });
-});
+// SensorSchema.post("save", (doc) => {
+//     logger.log({
+//         level : "info",
+//         message : doc,
+//     });
+// });
 
 module.exports = Mongoose.model('sensor', SensorSchema);

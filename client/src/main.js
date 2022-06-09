@@ -8,7 +8,7 @@ import router from "./router";
 import { appAxios } from "./utils/appAxios";
 
 import io from "socket.io-client";
-const socket = io("http://localhost:2018");
+const socket = io("http://localhost:8080");
 
 const app = createApp(App);
 

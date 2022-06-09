@@ -1,6 +1,8 @@
 const LogObject = require("./Log");
 const SensorModel = require("../../models/Sensor");
 
+
+
 class AddData {
     constructor(_id, logs, interval) {
         this.logs = logs;
@@ -13,7 +15,6 @@ class AddData {
 
 
     async addLog() {
-
 
         const log = new LogObject(
             Date.now() / 1000, // ID VALUE (uuid)
@@ -30,10 +31,10 @@ class AddData {
         const update = { records : this.logs };
 
         const updated = await SensorModel.findOneAndUpdate(filter, { $set: update })
-
+        
         console.log(updated);
         console.log("*********\n");
-
+        
         setTimeout(() => {
             this.addLog();
         }, this.interval);
