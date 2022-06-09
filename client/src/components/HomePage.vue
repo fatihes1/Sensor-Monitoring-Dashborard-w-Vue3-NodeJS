@@ -166,6 +166,7 @@
 <script>
 
 import Footer from "../views/Footer.vue";
+import { useToast } from "vue-toastification";
 export default {
     data() {
         return {
@@ -205,6 +206,11 @@ export default {
             });
         },
         createMainPoint() {
+          if(this.crateMainPointForm.title == null) {
+            const toast = useToast();
+            toast.error("Title alanı boş olamaz !");
+             return { toast }
+          }
             this.$appAxios({
                 url: "/mainpoints",
                 method: "POST",
