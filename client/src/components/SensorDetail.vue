@@ -136,9 +136,9 @@ export default {
 
   },
   methods: {
-    getSensorDatas() {
+    async getSensorDatas() {
       var path = window.location.pathname.split("/");
-      this.$appAxios({
+      await this.$appAxios({
         url: "/sensors/" + path[2],
         method: "GET",
       }).then((response) => {

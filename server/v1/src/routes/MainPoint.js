@@ -9,6 +9,7 @@ const router = express.Router();
 
 // index için token gerekiyor artık !  -- CRUD
 router.route("/").get(MainPointController.index);
+router.route("/:id").get(MainPointController.getOne);
 router.route("/").post(validate(schemas.createValidation), MainPointController.create);
 router.route("/:id").patch(idChecker(), validate(schemas.updateValidation), MainPointController.update);
 router.route("/:id").delete(idChecker(), MainPointController.deletePoint);

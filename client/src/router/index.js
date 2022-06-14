@@ -3,7 +3,7 @@ import WelcomePage from "@/components/WelcomePage.vue";
 import HomePage from "@/components/HomePage.vue"
 import AllSensors from "@/components/AllSensors.vue"
 import SensorDetail from "@/components/SensorDetail.vue"
-
+import NoResultPage from "@/components/NoResultPage.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,6 +26,10 @@ const router = createRouter({
       name : "sensor",
       path : "/sensor/:id",
       component : SensorDetail
+    },
+    { 
+      path: "/:catchAll(.*)", // Unrecognized path automatically matches 404 
+      component: NoResultPage
     }
   ],
 });

@@ -4,8 +4,8 @@ const logger = require('../scripts/logs/MainPoint')
 const MainPointSchema = new Mongoose.Schema({
     title : String,
     description : String,
-    locationX: String, // can be string too
-    locationY : String,
+    locationX: Number, // can be string too
+    locationY : Number,
     radius : Number
     
 }, {timestamps: true, versionKey: false});
