@@ -24,11 +24,11 @@ const server = app.listen(process.env.APP_PORT, () => {
     console.log("Sunucu ayağa kaldırıldı!");
     app.use("/mainpoints", MainPointRoutes);
     app.use("/sensors", SensorRoutes);
-    
     app.use((req, res, next) => {
         const error = new Error("Aradığınız sayfa bulunamadı");
         error.status = 404;
         next(error);
+        
     })
 
 });

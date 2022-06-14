@@ -3,8 +3,8 @@ const logger = require('../scripts/logs/Sensor')
 
 const SensorSchema = new Mongoose.Schema({
     type : String,
-    locationX: String, // can be string too
-    locationY : String,
+    locationX: Number, // can be string too
+    locationY : Number,
     reportInterval : Number,
     mainPoint_id : {
         type : Mongoose.Types.ObjectId,

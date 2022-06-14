@@ -4,6 +4,17 @@ const MainPointService = require("../services/MainPointService");
 const ApiError = require("../errors/ApiError")
 
 class MainPoint {
+    getOne (req, res, next) {
+        if(!req.params?.id){
+            return res.status(httpStatus.BAD_REQUEST).send({
+                message : "ID bilgisi eksik !",
+            });
+          };
+        MainPointService.list({_id : req.params.id}).then(oneMainPoint => {
+            if (!oneMainPoint) return next(new ApiError("Böyle bir kayıt bulunmamaktadır", 404));
+            res.status(httpStatus.OK).send(oneMainPoint)
+        }).catch((e) => next( new ApiError(e?.message)));
+    }
     index (req, res) {
         MainPointService.list().then(response => {
             if(response.length == 0) {

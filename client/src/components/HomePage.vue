@@ -44,7 +44,7 @@
               <div class="form-control">
               <label class="input-group input-group-md">
                 <span class="bg-brand-orange/30 text-lg w-28">Loc-X</span>
-                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full"  v-model="crateMainPointForm.locationX"/>
+                <input type="number" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full"  v-model="crateMainPointForm.locationX"/>
               </label>
               </div>
             </div>
@@ -55,7 +55,7 @@
               <div class="form-control">
               <label class="input-group input-group-md">
                 <span class="bg-brand-orange/30 text-lg w-28">Loc-Y</span>
-                <input type="text" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.locationY" />
+                <input type="number" placeholder="Type here" class="input input-bordered border-brand-orange/30 input-md w-full" v-model="crateMainPointForm.locationY" />
               </label>
               </div>
             </div>
@@ -122,7 +122,7 @@
               X: {{ point.locationX }}, Y: {{ point.locationY }}
               <br>
               <!-- <span class="badge badge-ghost badge-sm">Latitude - Longitude</span> -->
-              <span class="badge badge-success badge-sm">• Active</span>
+              <span class="badge badge-success badge-sm">Radius: {{ point.radius }}</span>
             </td>
             <td class="text-sm">{{ point.createdAt }}</td>
             <th>
@@ -184,34 +184,37 @@ export default {
         this.getMainPoints();
     },
     methods: {
-        getMainPoints() {
-            this.$appAxios({
+        async getMainPoints() {
+            await this.$appAxios({
                 url: "/mainpoints",
                 method: "GET"
             }).then(mainPoints => {
                 this.mainPoints = { ...mainPoints };
             });
         },
-        deleteMainPoint(id) {
-            this.$appAxios({
+        async deleteMainPoint(id) {
+            await this.$appAxios({
                 url: `/mainpoints/${id}`, // /mainpoint/31321sa
                 method: "DELETE"
             }).then(deletedItem => {
                 // TODO : daha iyi bir çözüm bul !
-                // this.getMainPoints();  
+                // this.getMainPoints();
                 this.mainPoints.data = this.mainPoints.data.filter(item => item._id !== id);
                 if (this.mainPoints.data.length == 0) {
                     this.$router.go(); // refresh page and show code-mock-up
                 }
+                const toast = useToast();
+                toast.success("Main point has been deleted!");
+                return { toast }
             });
         },
-        createMainPoint() {
-          if(this.crateMainPointForm.title == null) {
+        async createMainPoint() {
+          if(this.crateMainPointForm.title == null || this.crateMainPointForm.description == null || this.crateMainPointForm.locationX == null || this.crateMainPointForm.locationY == null || this.crateMainPointForm.radius == null) {
             const toast = useToast();
-            toast.error("Title alanı boş olamaz !");
+            toast.error("Please fill in all fields !");
              return { toast }
           }
-            this.$appAxios({
+          await this.$appAxios({
                 url: "/mainpoints",
                 method: "POST",
                 data: {
@@ -224,6 +227,9 @@ export default {
             }).then(mainPoints => {
                 console.log(mainPoints);
                 this.getMainPoints();
+                const toast = useToast();
+                toast.success("Created main point succesfully !");
+                return { toast }
             });
         }
     },
