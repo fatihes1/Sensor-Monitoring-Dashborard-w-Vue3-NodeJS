@@ -43,10 +43,12 @@ const io = socket(server, {
 io.on('connection', (socket) => {
     console.log("New user ID : ", socket.id);
 
+
+    //for socket test
     socket.on("msg", (arg) => {
         console.log(arg); // world
     });
-
+    
     SensorModel.watch().on('change', (change) => {
         const dataString = JSON.stringify(change);
         const dataObject = JSON.parse(dataString);
