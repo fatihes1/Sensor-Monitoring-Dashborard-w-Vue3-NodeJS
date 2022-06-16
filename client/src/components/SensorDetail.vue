@@ -70,8 +70,7 @@
                   (new Date(record.timeStamp)).getDate() + '/' + (new Date(record.timeStamp)).getMonth() + '/' + (new
                     Date(record.timeStamp)).getFullYear() + " " +
                   (new Date(record.timeStamp)).getHours() + ':' + (' 0' + (new
-                    Date(record.timeStamp)).getMinutes()).substr(-2) + ':' + (' 0' + (new Date(record.timeStamp *
-                      1000)).getSeconds()).substr(-2) }}
+                    Date(record.timeStamp)).getMinutes()).substr(-2) + ':' + (' 0' + (new Date(record.timeStamp)).getSeconds()).substr(-2) }}
                 </div>
               </td>
               
