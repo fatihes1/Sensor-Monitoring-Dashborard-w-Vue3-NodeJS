@@ -101,7 +101,7 @@ Client tarafını çalıştırın: `npm run dev`
 Proje varsayılan olarak şu adreste çalışacaktır. : `http://localhost:3000/`
 
 
-## :rocket: Projece Görselleri
+## :rocket: Proje Görselleri
  -  Proje back-end olarak olabildiğince detaylı bir klasörleme kullanılarak oluşturulmuştur. Böylelikle oluşan bir sorunun bulunduğu dosya kolaylıkla saptanabilir.
  
 ![directory_structure](https://user-images.githubusercontent.com/54971670/174284651-91194d3a-e552-458c-9f8f-98d39e4b11ad.PNG)
