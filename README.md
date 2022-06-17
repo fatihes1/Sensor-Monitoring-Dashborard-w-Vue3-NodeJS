@@ -17,7 +17,12 @@
 
 ![homepage](https://user-images.githubusercontent.com/54971670/174278781-056d247b-b483-48a9-8f36-3d73da373fc3.PNG)
 
+
+<div align="center">
+
 ![Sensor Monitoring Dashboard (3)](https://user-images.githubusercontent.com/54971670/174285808-ebd31899-21f6-488c-8e73-1fa595da20cc.gif)
+ 
+</div>
 
 
 ## :question: Sensor Monitoring System Dahboard Nedir?
