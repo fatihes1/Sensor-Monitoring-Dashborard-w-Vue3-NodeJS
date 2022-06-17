@@ -89,18 +89,24 @@ Proje varsayılan olarak şu adreste çalışacaktır. : `http://localhost:3000/
 
 ## :rocket: Project Pictures
  -  Proje back-end olarak olabildiğince detaylı bir klasörleme kullanılarak oluşturulmuştur. Böylelikle oluşan bir sorunun bulunduğu dosya kolaylıkla saptanabilir.
+ 
 ![directory_structure](https://user-images.githubusercontent.com/54971670/174284651-91194d3a-e552-458c-9f8f-98d39e4b11ad.PNG)
 
  -  Merkez noktanın oluşturulduğu kısım görselde belirtilmiştir :
+ 
 ![mainpoints](https://user-images.githubusercontent.com/54971670/174285081-1832cf77-ac8f-4dae-9eec-eec6547a2909.PNG)
 
  -  Merkez noktanın listelendiği kısım görselde belirtilmiştir :
+ 
  ![mainpoints2](https://user-images.githubusercontent.com/54971670/174285291-b35c3f48-6bd0-407f-9d41-0dadf31551c0.PNG)
 
+
 -  Sensorların oluşturulduğu kısım görselde belirtilmiştir :
+
 ![sensors](https://user-images.githubusercontent.com/54971670/174285372-6068ba7c-4c80-4ea5-bc28-6fe41094f266.PNG)
 
--  Sensorların listelendiği kısım görselde belirtilmiştir :,
+-  Sensorların listelendiği kısım görselde belirtilmiştir :
+
 ![sensors2](https://user-images.githubusercontent.com/54971670/174285446-5f8103c4-7a22-48ca-81e4-10040fca2b8f.PNG)
 
 - 404 Sayfası
