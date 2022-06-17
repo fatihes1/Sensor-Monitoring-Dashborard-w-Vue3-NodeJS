@@ -1,4 +1,7 @@
 ﻿# Sensor Monitoring System Dahboard
+
+<div align="center">
+
 ![](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
 ![](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -9,8 +12,7 @@
 ![](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 ![](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 
-
-
+</div>
 
 
 ![homepage](https://user-images.githubusercontent.com/54971670/174278781-056d247b-b483-48a9-8f36-3d73da373fc3.PNG)
@@ -21,7 +23,7 @@
 ## :question: Sensor Monitoring System Dahboard Nedir?
 Sensor görüntüleme sistemi kullanıcılara bir merkez nokta belirlemesini ve sonrasında bu merkez noktanın belirli bir yarı çapı içerisinde farklı türlerde sensor tanımlamanıza olanak tanır. Oluşturulan her sensor, sensor oluşturulurken belirtilen raporlama süresine göre düzenli olarak kayıt oluşturup bunu kullanıcıya sunmaktadır. Kullanıcı gerçek zamanı olarak sensordan gelen farklı verileri gözlemleyebilmektedir.
 
-## :question: ## Vue.js 3 Nedir?
+## :question: Vue.js 3 Nedir?
 Vue, kullanıcı arayüzleri oluşturmak için bir JavaScript çerçevesidir (framework). Standart HTML, CSS ve JavaScript'in üzerine kuruludur ve ister basit ister karmaşık olsun, kullanıcı ara yüzlerini verimli bir şekilde geliştirmenize yardımcı olan bildirime dayalı ve bileşen tabanlı bir programlama modeli sağlar.
 
 ## :question: Vite Nedir?
