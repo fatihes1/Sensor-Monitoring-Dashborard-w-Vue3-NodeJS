@@ -108,6 +108,7 @@ By default the project will run at : `http://localhost:3000/`
 ![mainpoints](https://user-images.githubusercontent.com/54971670/174285081-1832cf77-ac8f-4dae-9eec-eec6547a2909.PNG)
 
  -  The part where the center point is listed is indicated in the image :
+ 
  ![mainpoints2](https://user-images.githubusercontent.com/54971670/174285291-b35c3f48-6bd0-407f-9d41-0dadf31551c0.PNG)
 
 -  The part where the sensors are created is indicated in the image :
