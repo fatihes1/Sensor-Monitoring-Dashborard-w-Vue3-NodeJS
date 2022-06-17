@@ -50,23 +50,23 @@ It's fast, flexible, and reliable — with zero-runtime.
 
 ## :books: Kullanılan NPM Paketleri:
 ###  Client Taraflı Paketler:
--  [:link:](https://www.npmjs.com/package/axios) Axios
--  [:link:](https://www.npmjs.com/package/daisyui) DaisyUI
--  [:link:](https://www.npmjs.com/package/pinia) Pinia
--  [:link:](https://www.npmjs.com/package/vue-router) Vue Router
+- [:link:](https://www.npmjs.com/package/axios) Axios
+- [:link:](https://www.npmjs.com/package/daisyui) DaisyUI
+- [:link:](https://www.npmjs.com/package/pinia) Pinia
+- [:link:](https://www.npmjs.com/package/vue-router) Vue Router
 - [:link:](https://www.npmjs.com/package/vue-toastification) Vue Toastification
 - [:link:](https://www.npmjs.com/package/vite) Vite
 - [:link:](https://www.npmjs.com/package/tailwindcss) Tailwindcss
 - [:link:](https://www.npmjs.com/package/eslint) Eslint
 
 ### Server Taraflı Paketler:
--  [:link:](https://www.npmjs.com/package/cors) Cors
--  [:link:](https://www.npmjs.com/package/dotenv) Dotenv
--  [:link:](https://www.npmjs.com/package/express) Express
--  [:link:](https://www.npmjs.com/package/joi) Joi
--  [:link:](https://www.npmjs.com/package/http-status) Http-status
--  [:link:](https://www.npmjs.com/package/logger) Logger
--  [:link:](https://www.npmjs.com/package/mongoose) Mongoose
+- [:link:](https://www.npmjs.com/package/cors) Cors
+- [:link:](https://www.npmjs.com/package/dotenv) Dotenv
+- [:link:](https://www.npmjs.com/package/express) Express
+- [:link:](https://www.npmjs.com/package/joi) Joi
+- [:link:](https://www.npmjs.com/package/http-status) Http-status
+- [:link:](https://www.npmjs.com/package/logger) Logger
+- [:link:](https://www.npmjs.com/package/mongoose) Mongoose
 - [:link:](https://www.npmjs.com/package/winston) Winston
 - [:link:](https://www.npmjs.com/package/socket.io) Socket.io
 - [:link:](https://www.npmjs.com/package/nodemon) Nodemon
@@ -74,16 +74,25 @@ It's fast, flexible, and reliable — with zero-runtime.
  
 
 ## :floppy_disk: For Project
+
 Bu URL ile projeyi yerel makinenize klonlayın : `git clone https://github.com/fatihes1/Sensor-Monitoring-Dahborard-w-Vue3-NodeJS.git`
+
 Proje dizinine geçin : `cd Sensor-Monitoring-Dahborard-w-Vue3-NodeJS` 
+
 Server dizinine ulaşın: `cd server`
+
 -  **!** `example_.env` dosyasını referans alarak kendinize `.env` dosyası oluşturun. Proje varsayılan olarak MongoDB Atlas kullanarak bulut üzerinde yapılandırılmıştır. Veri tabanını yerel makinenizden kullanmak için `server/v1/src/loaders/db.js` dizinindeki dosyaya ulaşın ve `await Mongoose.connect(process.env.DB_STRING, . . .` satırını yapılandırın.
 
 Gereklilikleri indirmek için : `npm install`
+
 Sunucu tarafını çalıştırın : `npm run dev`
+
 Proje dizine geri dönün ve sonrasında client dizinine ulaşın: `cd client`
+
 Gereklilikleri indirmek için : `npm install`
+
 Client tarafını çalıştırın: `npm run dev`
+
 Proje varsayılan olarak şu adreste çalışacaktır. : `http://localhost:3000/`
 
 
@@ -110,6 +119,7 @@ Proje varsayılan olarak şu adreste çalışacaktır. : `http://localhost:3000/
 ![sensors2](https://user-images.githubusercontent.com/54971670/174285446-5f8103c4-7a22-48ca-81e4-10040fca2b8f.PNG)
 
 - 404 Sayfası
+
 ![Sensor Monitoring Dashboard (2)](https://user-images.githubusercontent.com/54971670/174286091-c3f24769-9a70-4509-b237-15051de99b7b.gif)
 
 
