@@ -10,8 +10,7 @@
 ![](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 
 
-
-
+[Click here](EN_README.md) for English README.
 
 ![homepage](https://user-images.githubusercontent.com/54971670/174278781-056d247b-b483-48a9-8f36-3d73da373fc3.PNG)
 
