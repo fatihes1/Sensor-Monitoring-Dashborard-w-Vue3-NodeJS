@@ -15,7 +15,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-current inline"><path d="M14.05 18.1 12.55 16.55 16.075 13.025H3.8V10.875H16.075L12.55 7.35L14.05 5.8L20.2 11.95Z"/></svg>
             </a>
             
-           <a href="https://github.com/fatihes1/NodeJS-Dashboard" target="_blank" class=" bg-gray-200/90 px-4 py-2 font-medium text-lg rounded-lg text-gray-600 hover:bg-gray-300  hover:text-gray-800 transition-colors">
+           <a href="https://github.com/fatihes1/Sensor-Monitoring-Dahborard-w-Vue3-NodeJS" target="_blank" class=" bg-gray-200/90 px-4 py-2 font-medium text-lg rounded-lg text-gray-600 hover:bg-gray-300  hover:text-gray-800 transition-colors">
                Documentation
            </a>
        </section>
