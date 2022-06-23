@@ -1,8 +1,6 @@
 const LogObject = require("./Log");
 const SensorModel = require("../../models/Sensor");
 
-
-
 class AddData {
     constructor(_id, logs, interval) {
         this.logs = logs;
