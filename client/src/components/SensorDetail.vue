@@ -124,7 +124,7 @@ export default {
     // this.$socket.emit("msg", "SELAMKEE");
       this.$socket.on("added-record", (responseSocket) => {
       
-      var path = window.location.pathname.split("/");
+       var path = window.location.pathname.split("/");
        if(responseSocket.documentKey._id ==  path[2]) {
          console.log(responseSocket);
          this.sensorDatas.data[0].records = responseSocket.updateDescription.updatedFields.records ;
